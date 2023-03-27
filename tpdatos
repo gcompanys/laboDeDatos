@@ -7,3 +7,26 @@ def obtener_indice(nombre_archivo,nombre_columna):
         indice = encabezado.index(next(x for x in encabezado if x == nombre_columna))
         
     return indice
+
+## problema 1 
+
+def leer_parque(nombreArchivo, parque):
+    
+    with open(nombreArchivo, "r") as file_csv:
+        lista_dic = []
+        filas = csv.reader(file_csv)
+        encabezado = next(filas)
+        #indice_parque = encabezado.index(next(x for x in encabezado if x == "espacio_ve"))
+        indice_parque = obtener_indice(nombreArchivo, 'espacio_ve')
+        #indice_arbol = encabezado.index(next(x for x in encabezado if x == 'id_arbol'))
+        indice_arbol = obtener_indice(nombreArchivo, 'id_arbol')
+        for fila in filas:
+            if fila[indice_parque] == parque:
+                dic = {fila[indice_arbol]:  fila}
+                lista_dic.append(dic)
+                
+    return lista_dic
+    
+   
+  #problma 4 
+
