@@ -1,0 +1,9 @@
+# funcion para leer indice correspondiente a la columna del csv
+def obtener_indice(nombre_archivo,nombre_columna):
+    
+    with open(nombre_archivo, 'r') as file:
+        filas = csv.reader(file)
+        encabezado = next(filas)
+        indice = encabezado.index(next(x for x in encabezado if x == nombre_columna))
+        
+    return indice
